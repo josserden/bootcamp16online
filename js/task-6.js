@@ -10,3 +10,17 @@
 
 let weight = '88,3';
 let height = '1.75';
+
+if (weight.includes(',')) {
+  weight = weight.replace(',', '.');
+}
+
+if (height.includes(',')) {
+  height = height.replace(',', '.');
+}
+
+// const bmi = parseFloat(weight) / Math.pow(parseFloat(height), 2);
+
+const bmi = parseFloat(weight) / parseFloat(height ** 2);
+
+console.log(bmi.toFixed(1));

@@ -4,9 +4,11 @@
  * Різницю яблук та винограду.
  */
 
-// const apples = 47;
-// const grapes = 135;
+const apples = 47;
+const grapes = 135;
 
-// const total
+const total = apples + grapes;
+const diff = grapes - apples;
 
-const defaultValue = 5;
+console.log(total);
+console.log(diff);

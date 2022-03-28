@@ -3,6 +3,8 @@
  * Заміни вираз перевизначення комбінованим оператором +=.
  */
 
-// let students = 100;
+let students = 100;
 // students = students + 50;
-// console.log(students);
+students += 50;
+
+console.log(students);
