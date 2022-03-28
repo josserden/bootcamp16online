@@ -1,6 +1,6 @@
 // todo Оператори порівняння та приведення типів
 
-console.log(5 > 5);
+// console.log(5 > 5);
 
 // console.log(Boolean(0));
 // console.log(Boolean(undefined));
@@ -16,12 +16,15 @@ console.log(5 > 5);
 
 // console.log(10 >= '7');
 
-// console.log('A' > 'a');
+// console.log('A' === 'a');
 
 // console.log('A'.charCodeAt(0));
 // console.log('a'.charCodeAt(0));
 
 // console.log('2' < '12');
+
+// console.log('2'.charCodeAt(0));
+// console.log('1'.charCodeAt(0));
 
 // console.log('4' == 4);
 
