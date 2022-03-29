@@ -4,8 +4,16 @@
 
 * Якщо значення змінної hours:
 * менше 17, виводь рядок "Pending"
-* більше або одно 17 і менше або * дорівнює 24, виводь рядок "Expires"
+* більше або дорівнює 17 і менше або дорівнює 24, виводь рядок "Expires"
 * більше 24 , виводи рядок "Overdue"
 */
 
-const hours = 23;
+const hours = 10;
+
+if (hours < 17) {
+  console.log('Pending');
+} else if (hours >= 17 && hours <= 24) {
+  console.log('Expires');
+} else {
+  console.log('Overdue');
+}
