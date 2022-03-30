@@ -3,4 +3,12 @@
  * Напиши скрипт який виводить у консоль усі слова рядка крім першого та останнього. Результуючий рядок не повинен починатися або закінчуватися пробілом. Скрипт повинен працювати для будь-якого рядка.
  */
 
-const string = 'Welcome to the future';
+const string =
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptas cupiditate excepturi,';
+
+let arr = string.split(' ');
+arr.shift();
+arr.pop();
+arr = arr.join(' ');
+
+console.log(arr);

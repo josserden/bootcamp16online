@@ -7,3 +7,14 @@
  * Видаліть перший елемент і виведіть його в консоль.
  * Вставте «Country» та «Raggy» на початок масиву.
  */
+const genres = ['Jazz', 'Blues'];
+genres.push('Рок-н-рол');
+
+// console.log(genres[0]);
+// console.log(genres[genres.length - 1]);
+
+// console.log(genres.splice(0, 1));
+// console.log(genres.shift());
+console.log(genres.unshift('Country', 'Raggy'));
+
+console.table(genres);
