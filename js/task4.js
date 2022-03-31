@@ -5,5 +5,15 @@
 * Наприклад, для першого елемента масиву ['Mango', 'Poly', 'Ajax'] з індексом 0 буде виведено 1 - Mango, а для індексу 2 виведе 3 - Ajax.
  */
 
+function showText(text) {
+  console.log(text);
+}
+
+function logItems(items) {
+  for (let i = 0; i < items.length; i += 1) {
+    showText(`${i + 1} - ${items[i]}`);
+  }
+}
+
 logItems(['Mango', 'Poly', 'Ajax']);
 logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
