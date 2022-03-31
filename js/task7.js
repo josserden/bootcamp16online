@@ -1,30 +1,8 @@
-// todo Сортування масиву із циклом
+// todo Середнє значення
 /*
- * Напиши скрипт сортування масиву рядків в алфавітному порядку за першою літерою елемента.
+ * Напишіть функцію calAverage() яка приймає довільну кількість аргументів і повертає їхнє середнє значення. Усі аргументи будуть лише числами.
  */
 
-const langs = ['python', 'javascript', 'papa', 'c++', 'haskell', 'php', 'ruby'];
-
-const sortedArr = langs.sort();
-
-console.log(sortedArr);
-
-// const sortedArr = [];
-// let baseElementValue = langs[0].charCodeAt(0);
-
-// for (const lang of langs) {
-//   if (baseElementValue > lang.charCodeAt(0)) {
-//     baseElementValue = lang.charCodeAt(0);
-//   }
-
-//   if (lang.charCodeAt(0) < baseElementValue) {
-//     sortedArr.unshift(lang);
-//   } else if (lang.charCodeAt(0) === baseElementValue) {
-//     sortedArr.push(lang);
-//   } else {
-//     sortedArr.push(lang);
-//   }
-// }
-
-// console.log(baseElementValue);
-// console.table(sortedArr);
+console.log(calAverage(1, 2, 3, 4)); // 2.5
+console.log(calAverage(14, 8, 2)); // 8
+console.log(calAverage(27, 43, 2, 8, 36)); // 23.2
