@@ -3,28 +3,37 @@
  * Напиши скрипт сортування масиву рядків в алфавітному порядку за першою літерою елемента.
  */
 
-const langs = ['python', 'javascript', 'papa', 'c++', 'haskell', 'php', 'ruby'];
+const langs = [
+  'python',
+  'web',
+  'javascript',
+  'c++',
+  'haskell',
+  'php',
+  'abb',
+  'ruby',
+];
 
-const sortedArr = langs.sort();
+function getMinValue(array) {
+  let minElement = array[0];
 
-console.log(sortedArr);
+  for (const item of array) {
+    if (minElement > item) {
+      minElement = item;
+    }
+  }
 
-// const sortedArr = [];
-// let baseElementValue = langs[0].charCodeAt(0);
+  return minElement;
+}
 
-// for (const lang of langs) {
-//   if (baseElementValue > lang.charCodeAt(0)) {
-//     baseElementValue = lang.charCodeAt(0);
-//   }
+function sortArr(array) {
+  const newArr = [];
 
-//   if (lang.charCodeAt(0) < baseElementValue) {
-//     sortedArr.unshift(lang);
-//   } else if (lang.charCodeAt(0) === baseElementValue) {
-//     sortedArr.push(lang);
-//   } else {
-//     sortedArr.push(lang);
-//   }
-// }
+  for (; array.length; ) {
+    newArr.push(array.splice(array.indexOf(getMinValue(array)), 1));
+  }
 
-// console.log(baseElementValue);
-// console.table(sortedArr);
+  return newArr;
+}
+
+console.log(sortArr(langs));
