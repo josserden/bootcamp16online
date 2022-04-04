@@ -1,24 +1,10 @@
-// todo Масиви та рядки
+//todo метод Object.values()
 /*
- * Напиши скрипт для обчислення площі прямокутника зі сторонами, значення яких зберігаються у змінній values у вигляді рядка. Значення гарантовано розділені пробілом.
+ * У нас є об'єкт, у якому зберігаються зарплати нашої команди. Напишіть код для підсумовування всіх зарплат та збережіть результат у змінній sum. Повинно вийти 390. Якщо об'єкт salaries порожній, результат має бути 0.
  */
 
-const values = '8 11';
-const numbers = values.split(' ');
-
-const a = Number(numbers[0]);
-const b = Number(numbers[1]);
-const square = a * b;
-
-console.log(square);
-
-// let counter = 1;
-// console.log(numbers);
-
-// for (let i = 0; i < numbers.length; i += 1) {
-//   const element = numbers[i];
-
-//   console.log(element);
-
-//   console.log((counter = counter * element));
-// }
+const salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130,
+};
