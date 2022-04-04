@@ -13,4 +13,21 @@ const user = {
   age: 21,
   hobby: 'css',
   premium: true,
+
+  // address: {
+  //   city: 'Kyiv',
+  //   postIndex: 12345,
+  //   street: 'Peremogy, 1',
+  // },
 };
+
+user.mood = 'happy';
+user.hobby = 'skydiving';
+user.premium = false;
+// user.address.postIndex = 11134;
+
+// console.table(user);
+
+for (const key of Object.keys(user)) {
+  console.log(`${key} - ${user[key]}`);
+}
