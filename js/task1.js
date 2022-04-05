@@ -1,33 +1,35 @@
-//todo Основи об'єктів
+//todo Example 1 - Деструктуризація
 /*
- * Напиши скрипт, який, для об'єкта user, послідовно:
-
-* додає поле mood зі значенням 'happy'
-* замінює значення hobby на 'skydiving'
-* замінює значення premium на false
-* виводить вміст об'єкта user у форматі ключ: значення використовуючи Object.keys() і for...of
+ * Перепиши функцію так, щоб вона приймала один об'єкт параметрів замість набору незалежних аргументів.
  */
 
-const user = {
-  name: 'John',
-  age: 21,
-  hobby: 'css',
-  premium: true,
-
-  // address: {
-  //   city: 'Kyiv',
-  //   postIndex: 12345,
-  //   street: 'Peremogy, 1',
-  // },
-};
-
-user.mood = 'happy';
-user.hobby = 'skydiving';
-user.premium = false;
-// user.address.postIndex = 11134;
-
-// console.table(user);
-
-for (const key of Object.keys(user)) {
-  console.log(`${key} - ${user[key]}`);
+function calcBMI(weight, height) {
+  const numericWeight = Number(weight.replace(',', '.'));
+  const numericHeight = Number(height.replace(',', '.'));
+  return Number((numericWeight / numericHeight ** 2).toFixed(1));
 }
+
+// Було
+// console.log(calcBMI('88,3', '1.75'));
+// console.log(calcBMI('68,3', '1.65'));
+// console.log(calcBMI('118,3', '1.95'));
+
+// Очікується
+console.log(
+  calcBMI({
+    weight: '88,3',
+    height: '1.75',
+  }),
+);
+console.log(
+  calcBMI({
+    weight: '68,3',
+    height: '1.65',
+  }),
+);
+console.log(
+  calcBMI({
+    weight: '118,3',
+    height: '1.95',
+  }),
+);

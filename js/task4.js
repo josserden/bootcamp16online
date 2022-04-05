@@ -1,117 +1,33 @@
-//todo Комплексні завдання
-/*
- * Напиши скрипт управління особистим кабінетом інтернет-банку. Є об'єкт account, в якому необхідно реалізувати методи для роботи з балансом та історією транзакцій.
- */
+// todo
 
 /*
- * Типів транзакцій лише два.
- * Можна покласти чи зняти гроші з рахунку.
- */
+ * Перепиши функцію те щоб вона приймала об'єкт параметрів з властивостями companyName і stock і виводила репорт про кількість товарів у складі будь-якої компанії. */
 
-const TRANSACTIONS = {
-  DEPOSIT: 'deposit',
-  WITHDRAW: 'withdraw',
-};
+function getStockReport(companyName, stock) {
+  let total = 0;
+  for (const value of stock) {
+    total += value;
+  }
+  return `${companyName} has ${total} items in stock`;
+}
 
-/*
- * Кожна транзакція це об'єкт з властивостями: id, type та amount
- */
+console.log(
+  getStockReport({
+    companyName: 'Cyberdyne Systems',
+    stock: {
+      repairBots: 150,
+      defenceBots: 50,
+    },
+  }),
+); // "Cyberdyne Systems has 200 items in stock"
 
-const account = {
-  // Поточний баланс рахунку
-  balance: 0,
-  // Історія транзакцій
-  transactions: [],
-  /*
-   * Метод створює та повертає об'єкт транзакції.
-   * Приймає суму та тип транзакції.
-   */
-  createTransaction(amount, type) {
-    const transaction = {
-      id: this.transactions.length + 1,
-      type,
-      amount,
-    };
-
-    return transaction;
-  },
-  /*
-   * Метод, який відповідає за додавання суми до балансу.
-   * Приймає суму транзакції.
-   * Викликає createTransaction для створення об'єкта транзакції
-   * після чого додає його в історію транзакцій
-   */
-  deposit(amount) {
-    this.balance += amount;
-
-    const newTransaction = this.createTransaction(amount, TRANSACTIONS.DEPOSIT);
-
-    this.transactions.push(newTransaction);
-  },
-  /*
-   * Метод, що відповідає за зняття суми з балансу.
-   * Приймає суму транзакції.
-   * Викликає createTransaction для створення об'єкта транзакції
-   * Після чого додає його в історію транзакцій.
-   *
-   * Якщо amount більше ніж поточний баланс, виводь повідомлення
-   * про те, що зняття такої суми не можливе, недостатньо коштів.
-   */
-  withdraw(amount) {
-    if (amount > this.balance) return alert('Недостатньо коштів !');
-
-    this.balance -= amount;
-
-    const newTransaction = this.createTransaction(
-      amount,
-      TRANSACTIONS.WITHDRAW,
-    );
-
-    this.transactions.push(newTransaction);
-  },
-  /*
-   * Метод повертає поточний баланс
-   */
-  getBalance() {
-    return this.balance;
-  },
-  /*
-   * Метод шукає та повертає об'єкт транзакції по id
-   */
-  getTransactionDetails(id) {
-    for (const item of this.transactions) {
-      if (item.id === id) return item;
-    }
-
-    return 'NO';
-  },
-  /*
-   * Метод повертає кількість коштів
-   * певного типу транзакції з усієї історії транзакцій
-   */
-  getTransactionTotal(type) {
-    let total = 0;
-
-    for (const item of this.transactions) {
-      if (item.type === type) {
-        total += item.amount;
-      }
-    }
-
-    return total;
-  },
-};
-
-account.deposit(200);
-account.deposit(500);
-account.withdraw(500);
-account.deposit(2600);
-account.deposit(20);
-account.withdraw(820);
-
-console.log(account.getBalance());
-
-console.table(account.transactions);
-
-console.log(account.getTransactionDetails(6));
-console.log(account.getTransactionTotal(TRANSACTIONS.DEPOSIT));
+console.log(
+  getStockReport({
+    companyName: 'Belacci',
+    stock: {
+      shoes: 20,
+      skirts: 10,
+      hats: 5,
+    },
+  }),
+); // "Belacci has 35 item in stock"

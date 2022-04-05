@@ -1,24 +1,24 @@
-//todo метод Object.values()
+//todo Example 2 - Деструктуризація
 /*
- * У нас є об'єкт, у якому зберігаються зарплати нашої команди. Напишіть код для підсумовування всіх зарплат та збережіть результат у змінній sum. Повинно вийти 390. Якщо об'єкт salaries порожній, результат має бути 0.
+ * Перепиши функцію так, щоб вона приймала один об'єкт параметрів замість набору незалежних аргументів.
  */
 
-const salaries = {
-  John: 100,
-  Ann: 160,
-  Pete: 130,
-};
-
-function getTotalSalaries(object = {}) {
-  const numbers = Object.values(object);
-  let sum = 0;
-
-  for (const number of numbers) {
-    sum += number;
+function printContactsInfo(names, phones) {
+  const nameList = names.split(',');
+  const phoneList = phones.split(',');
+  for (let i = 0; i < nameList.length; i += 1) {
+    console.log(`${nameList[i]}: ${phoneList[i]}`);
   }
-
-  return sum;
 }
 
-console.log(getTotalSalaries());
-console.log(getTotalSalaries(salaries));
+// Було
+// printContactsInfo(
+//   'Jacob,William,Solomon,Artemis',
+//   '89001234567,89001112233,890055566377,890055566300',
+// );
+
+// Очікується
+printContactsInfo({
+  names: 'Jacob,William,Solomon,Artemis',
+  phones: '89001234567,89001112233,890055566377,890055566300',
+});
