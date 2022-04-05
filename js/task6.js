@@ -3,20 +3,26 @@
 /*
  * Напиши функцію transformUsername(user) так, щоб вона повертала новий об'єкт із властивістю fullName замість firstName і lastName. */
 
-function transformUsername({ firstName, lastName }) {}
+function transformUsername({ firstName, lastName, ...otherProps }) {
+  return {
+    fullName: `${firstName} ${lastName}`,
+    ...otherProps,
+  };
+}
 
 console.log(
-  transformId({
+  transformUsername({
     id: 1,
     firstName: 'Jacob',
     lastName: 'Mercer',
     email: 'j.mercer@mail.com',
     friendCount: 40,
+    hobby: 'fishing',
   }),
 );
 
 console.log(
-  transformId({
+  transformUsername({
     id: 2,
     firstName: 'Adrian',
     lastName: 'Cross',

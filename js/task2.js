@@ -3,9 +3,12 @@
  * Перепиши функцію так, щоб вона приймала один об'єкт параметрів замість набору незалежних аргументів.
  */
 
-function printContactsInfo(names, phones) {
+function printContactsInfo(params) {
+  const { names, phones } = params;
+
   const nameList = names.split(',');
   const phoneList = phones.split(',');
+
   for (let i = 0; i < nameList.length; i += 1) {
     console.log(`${nameList[i]}: ${phoneList[i]}`);
   }

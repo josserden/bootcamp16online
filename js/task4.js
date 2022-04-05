@@ -3,9 +3,10 @@
 /*
  * Перепиши функцію те щоб вона приймала об'єкт параметрів з властивостями companyName і stock і виводила репорт про кількість товарів у складі будь-якої компанії. */
 
-function getStockReport(companyName, stock) {
+function getStockReport({ companyName, stock }) {
   let total = 0;
-  for (const value of stock) {
+
+  for (const value of Object.values(stock)) {
     total += value;
   }
   return `${companyName} has ${total} items in stock`;
@@ -16,7 +17,7 @@ console.log(
     companyName: 'Cyberdyne Systems',
     stock: {
       repairBots: 150,
-      defenceBots: 50,
+      defenseBots: 50,
     },
   }),
 ); // "Cyberdyne Systems has 200 items in stock"
