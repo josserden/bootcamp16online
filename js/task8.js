@@ -1,15 +1,16 @@
 // todo Метод forEach
 
 /*
- * Виконайте рефакторинг коду, використовуючи метод дляEach і стрілочні функції.
+ * Виконайте рефакторинг коду, використовуючи метод для Each і стрілочні функції.
  */
 
 function printContactsInfo({ names, phones }) {
   const nameList = names.split(',');
   const phoneList = phones.split(',');
-  for (let i = 0; i < nameList.length; i += 1) {
-    console.log(`${nameList[i]}: ${phoneList[i]}`);
-  }
+
+  nameList.forEach((element, index) => {
+    console.log(`${element} : ${phoneList[index]}`);
+  });
 }
 
 printContactsInfo({

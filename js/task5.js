@@ -8,6 +8,7 @@ const TRANSACTION_LIMIT = 1000;
 const account = {
   username: 'Jacob',
   balance: 400,
+
   withdraw(amount, onSuccess, onError) {
     if (amount > TRANSACTION_LIMIT) {
       onError(`Amount should not exceed ${TRANSACTION_LIMIT} credits`);
@@ -18,6 +19,7 @@ const account = {
       onSuccess(`Account balance: ${this.balance}`);
     }
   },
+
   deposit(amount, onSuccess, onError) {
     if (amount > TRANSACTION_LIMIT) {
       onError(`Amount should not exceed ${TRANSACTION_LIMIT} credits`);
@@ -30,12 +32,9 @@ const account = {
   },
 };
 
-function handleSuccess(message) {
-  console.log(`✅ Success! ${message}`);
-}
-function handleError(message) {
-  console.log(`❌ Error! ${message}`);
-}
+const handleSuccess = message => console.log(`✅ Success! ${message}`);
+
+const handleError = message => console.log(`❌ Error! ${message}`);
 
 account.withdraw(2000, handleSuccess, handleError);
 account.withdraw(600, handleSuccess, handleError);
