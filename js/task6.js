@@ -1,32 +1,38 @@
-// todo Операція rest
+// todo Інлайн стрілочні функції
 
 /*
- * Напиши функцію transformUsername(user) так, щоб вона повертала новий об'єкт із властивістю fullName замість firstName і lastName. */
+ * Виконайте рефакторинг коду за допомогою стрілочних функцій. */
 
-function transformUsername({ firstName, lastName, ...otherProps }) {
-  return {
-    fullName: `${firstName} ${lastName}`,
-    ...otherProps,
-  };
+function each(array, callback) {
+  const newArr = [];
+  for (const el of array) {
+    newArr.push(callback(el));
+  }
+  return newArr;
 }
 
 console.log(
-  transformUsername({
-    id: 1,
-    firstName: 'Jacob',
-    lastName: 'Mercer',
-    email: 'j.mercer@mail.com',
-    friendCount: 40,
-    hobby: 'fishing',
+  each([64, 49, 36, 25, 16], function (value) {
+    return value * 2;
   }),
 );
-
 console.log(
-  transformUsername({
-    id: 2,
-    firstName: 'Adrian',
-    lastName: 'Cross',
-    email: 'a.cross@hotmail.com',
-    friendCount: 20,
+  each([64, 49, 36, 25, 16], function (value) {
+    return value - 10;
+  }),
+);
+console.log(
+  each([64, 49, 36, 25, 16], function (value) {
+    return Math.sqrt(value);
+  }),
+);
+console.log(
+  each([1.5, 2.1, 16.4, 9.7, 11.3], function (value) {
+    return Math.ceil(value);
+  }),
+);
+console.log(
+  each([1.5, 2.1, 16.4, 9.7, 11.3], function (value) {
+    return Math.floor(value);
   }),
 );
