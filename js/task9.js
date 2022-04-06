@@ -1,19 +1,11 @@
-// todo Метод forEach
+import { cars } from './cars.js';
+// todo Метод sort
 
 /*
- * Виконайте рефакторинг коду, використовуючи метод дляEach і стрілочні функції.
+ * Нехай функція sortByModel повертає новий масив автомобілів відсортований за назвою моделі в алфавітному та зворотному алфавітному порядку, залежно від значення параметра order.
  */
 
-const calculateAverage = (...args) => {
-  let total = 0;
+const sortByModel = (cars, order) => {};
 
-  args.forEach(arg => {
-    total += arg;
-  });
-
-  return total / args.length;
-};
-
-console.log(calculateAverage(1, 2, 3, 4));
-console.log(calculateAverage(14, 8, 2));
-console.log(calculateAverage(27, 43, 2, 8, 36));
+console.table(sortByModel(cars, 'asc'));
+console.table(sortByModel(cars, 'desc'));

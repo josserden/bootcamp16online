@@ -1,19 +1,10 @@
-// todo Метод forEach
+import { cars } from './cars.js';
+// todo Метод sort
 
 /*
- * Виконайте рефакторинг коду, використовуючи метод для Each і стрілочні функції.
+ * Нехай функція sortByDescendingPrice повертає новий масив автомобілів, відсортований за зменшенням значення якості price.
  */
 
-function printContactsInfo({ names, phones }) {
-  const nameList = names.split(',');
-  const phoneList = phones.split(',');
+const sortByDescendingPrice = cars => {};
 
-  nameList.forEach((element, index) => {
-    console.log(`${element} : ${phoneList[index]}`);
-  });
-}
-
-printContactsInfo({
-  names: 'Jacob,William,Solomon,Artemis',
-  phones: '89001234567,89001112233,890055566377,890055566300',
-});
+console.table(sortByDescendingPrice(cars));
