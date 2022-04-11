@@ -1,33 +1,31 @@
-// todo bind(), call()
+// todo Нотатки
 
-// function counter() {
-//   return function () {
-//     this.count += 1;
+/*
+ * Напиши клас Notes, який управляє колекцією нотаток у властивості items. Нотатка це об'єкт із властивостями text та priority. Додай класу статичну властивість Priority, у якій зберігатиметься об'єкт із пріоритетами.
+{
+  LOW: 'low',
+  NORMAL: 'normal',
+  HIGH: 'high'
+}
+ */
 
-//     return this.count;
-//   };
-// }
+/*
+ * Додай методи addNote(note), removeNote(text) та updatePriority(text, newPriority).
+ */
 
-// const first = counter().bind({ count: 10 });
-// const second = counter().bind({ count: 100 });
+const myNotes = new Notes([]);
 
-// console.log(first());
-// console.log(second());
+myNotes.addNote({ text: 'Моя первая заметка', priority: Notes.Priority.LOW });
+console.log(myNotes.items);
 
-// const guests = ['Mango', 'Poly', 'Ajax'];
+myNotes.addNote({
+  text: 'Моя вторая заметка',
+  priority: Notes.Priority.NORMAL,
+});
+console.log(myNotes.items);
 
-// const place1 = {
-//   house: '1',
-// };
+myNotes.removeNote('Моя первая заметка');
+console.log(myNotes.items);
 
-// const place2 = {
-//   house: '2',
-// };
-
-// function hostGuest(...currentGuests) {
-//   return `House ${this.house} with ${currentGuests.join(', ')}`;
-// }
-
-// console.log(hostGuest.call(place1, ...guests));
-// console.log(hostGuest.call(place2, 'Chelsey', 'Kostya'));
-// console.log(hostGuest.call(place2, ...guests, 'Chelsey', 'Kostya'));
+myNotes.updateNote('Моя вторая заметка', Notes.Priority.HIGH);
+console.log(myNotes.items);
