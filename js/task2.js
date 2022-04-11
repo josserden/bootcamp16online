@@ -1,17 +1,45 @@
-//todo Метод map
+//todo Телефонна книга
 
-import { cars } from './cars.js';
-console.table(cars);
 /*
- * Нехай функція makeCarsWithDiscount повертає новий масив об'єктів із змінним значенням властивості price залежно від переданої знижки.
+ * Виконайте рефакторинг методів об'єкта phonebook, щоб код запрацював.
  */
 
-const makeCarsWithDiscount = (cars, discount) => {
-  return cars.map(car => ({
-    ...car,
-    price: car.price - car.price * discount,
-  }));
+const phonebook = {
+  contacts: [],
+
+  add(contact) {
+    const newContact = {
+      list: 'default',
+      ...contact,
+      id: this.generateId(),
+      createdAt: this.getDate(),
+    };
+
+    this.contacts.push(newContact);
+  },
+
+  generateId() {
+    return '_' + Math.random().toString(36).substr(2, 9);
+  },
+
+  getDate() {
+    return Date.now();
+  },
+
+  getContacts() {
+    return this.contacts;
+  },
 };
 
-console.table(makeCarsWithDiscount(cars, 0.2));
-console.table(makeCarsWithDiscount(cars, 0.4));
+phonebook.add({
+  name: 'Mango',
+  email: 'mango@mail.com',
+  list: 'friends',
+});
+
+phonebook.add({
+  name: 'Poly',
+  email: 'poly@hotmail.com',
+});
+
+console.table(phonebook.contacts);

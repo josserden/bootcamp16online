@@ -1,16 +1,33 @@
-// todo  Метод filter
+// todo bind(), call()
 
-import { cars } from './cars.js';
-console.table(cars);
+// function counter() {
+//   return function () {
+//     this.count += 1;
 
-/*
- * Нехай функція getCarsWithDiscount повертає масив автомобілів властивість onSale яких true.
- */
+//     return this.count;
+//   };
+// }
 
-const getCarsWithDiscount = cars => {
-  return cars.filter(car => car.onSale === true);
-};
+// const first = counter().bind({ count: 10 });
+// const second = counter().bind({ count: 100 });
 
-// const getCarsWithDiscount = cars => cars.filter(({ onSale }) => !onSale);
+// console.log(first());
+// console.log(second());
 
-console.table(getCarsWithDiscount(cars));
+// const guests = ['Mango', 'Poly', 'Ajax'];
+
+// const place1 = {
+//   house: '1',
+// };
+
+// const place2 = {
+//   house: '2',
+// };
+
+// function hostGuest(...currentGuests) {
+//   return `House ${this.house} with ${currentGuests.join(', ')}`;
+// }
+
+// console.log(hostGuest.call(place1, ...guests));
+// console.log(hostGuest.call(place2, 'Chelsey', 'Kostya'));
+// console.log(hostGuest.call(place2, ...guests, 'Chelsey', 'Kostya'));
