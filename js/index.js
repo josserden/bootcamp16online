@@ -1,3 +1,7 @@
+const form = document.querySelector('.form');
+const list = document.querySelector('.list');
+const totalAmount = document.querySelector('.total-amount');
+
 const Transaction = {
   DEPOSIT: 'deposit',
   WITHDRAW: 'withdraw',
@@ -13,7 +17,7 @@ const account = {
 
   createTransaction(amount, type) {
     return {
-      id: generateId(),
+      id: this.transactions.length + 1,
       type,
       amount,
     };
@@ -21,15 +25,28 @@ const account = {
 
   deposit(amount) {
     this.balance += amount;
+
     const newTransaction = this.createTransaction(amount, Transaction.DEPOSIT);
+
     this.transactions.push(newTransaction);
   },
 };
 
-function generateId() {
-  return (
-    String.fromCharCode(Math.floor(Math.random() * 26) + 97) +
-    Math.random().toString(16).slice(2) +
-    Date.now().toString(16).slice(4)
-  );
-}
+form.addEventListener('submit', event => {
+  event.preventDefault();
+
+  let inputValue = parseInt(form.elements.amount.value);
+
+  if (!inputValue) return console.log('empty input');
+
+  account.deposit(inputValue);
+  totalAmount.textContent = account.getBalance();
+
+  const item = document.createElement('li');
+  item.classList.add('item');
+  item.textContent = inputValue;
+
+  list.append(item);
+
+  form.reset();
+});
