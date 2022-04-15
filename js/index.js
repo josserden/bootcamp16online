@@ -1,54 +1,53 @@
+import { account } from './account.js';
 const Transaction = {
   DEPOSIT: 'deposit',
   WITHDRAW: 'withdraw',
 };
+const form = document.querySelector('.form');
+const totalDeposit = document.querySelector('.total-deposit');
+const totalWithdraw = document.querySelector('.total-withdraw');
+const list = document.querySelector('.list');
 
-const account = {
-  balance: 0,
-  transactions: [],
+form.addEventListener('submit', formSubmitHandler);
 
-  getBalance() {
-    return this.balance;
-  },
+function formSubmitHandler(event) {
+  event.preventDefault();
 
-  createTransaction(amount, type, description) {
-    return {
-      id: generateId(),
-      type,
-      amount,
-      description,
-    };
-  },
+  const description = form.elements.description.value.trim();
+  const amount = parseInt(form.elements.amount.value);
 
-  deposit(amount, description) {
-    this.balance += amount;
-    const newTransaction = this.createTransaction(
-      amount,
-      Transaction.DEPOSIT,
-      description,
-    );
+  if (!description || !amount)
+    return alert('Форма повинна бути заповнена повністю');
 
-    this.transactions.push(newTransaction);
-  },
+  // if (amount < 0) {
+  //   account.withdraw({ amount, description });
+  // } else {
+  //   account.deposit({ description, amount });
+  // }
 
-  withdraw(amount, description) {
-    this.balance -= amount;
-    const newTransaction = this.createTransaction(
-      amount,
-      Transaction.WITHDRAW,
-      description,
-    );
+  amount < 0
+    ? account.withdraw({ amount, description })
+    : account.deposit({ description, amount });
 
-    this.transactions.push(newTransaction);
-  },
+  totalWithdraw.textContent = account.getTransactionTotal(Transaction.WITHDRAW);
+  totalDeposit.textContent = account.getTransactionTotal(Transaction.DEPOSIT);
 
-  getTransactionTotal(type) {},
-};
+  renderMarkup();
+  form.reset();
+}
 
-function generateId() {
-  return (
-    String.fromCharCode(Math.floor(Math.random() * 26) + 97) +
-    Math.random().toString(16).slice(2) +
-    Date.now().toString(16).slice(4)
-  );
+function renderMarkup() {
+  list.innerHTML = '';
+
+  const markup = account.transactions
+    .map(
+      ({ description, amount }) =>
+        `<li class="item ${amount < 0 ? 'item-minus' : 'item-plus'}">
+        <p>${description}</p>
+        <p>${amount}</p>
+      </li>`,
+    )
+    .join('');
+
+  list.insertAdjacentHTML('beforeend', markup);
 }
