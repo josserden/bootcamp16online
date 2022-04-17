@@ -1,11 +1,8 @@
 :root {
-  --main-bg: linear-gradient(to right, #e2e2e2, #c9d6ff);
-  --main-font-color: #403866;
-  --main-accent-color: #8f8fa1;
-  --main-light: #ffffff;
-  --main-mint: #00a8a8;
-  --resolved: #59c173;
-  --rejected: #c31432;
+  --main-bg: linear-gradient(to right, #ffffff, #ece9e6);
+  --main-accent: #009fff;
+  --main-font-color: #020202;
+  --main-light-color: #ffffff;
 }
 
 *,
@@ -38,42 +35,10 @@ body {
   padding-right: 15px;
 }
 
-.wrapper {
+.buttons-container {
   display: flex;
   justify-content: center;
-}
-
-.form,
-.main {
-  padding: 20px;
-}
-
-.label {
-  display: block;
-  color: var(--main-font-color);
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.input {
-  display: block;
-  width: 350px;
-  height: 40px;
-
-  padding: 0 20px;
-  margin-top: 15px;
-  background: var(--main-light);
-  border-radius: 8px;
-  border: 1px solid var(--main-accent-color);
-  outline: none;
-
-  color: var(--main-accent-color);
-  font-size: 18px;
-  font-weight: inherit;
-}
-
-.input:focus {
-  box-shadow: 0px 0px 1px 1px var(--main-accent-color);
+  gap: 10px;
 }
 
 .button {
@@ -83,85 +48,27 @@ body {
   border: 0;
   cursor: pointer;
 
-  background-color: var(--main-mint);
-  color: var(--main-light);
+  color: var(--main-font-color);
+  font-weight: bold;
 
   padding: 15px 20px;
-  border-radius: 8px;
+  border: 2px solid var(--main-accent);
+  border-radius: 4px;
 }
 
-.list {
-  width: 350px;
+.button.is-active {
+  background-color: var(--main-accent);
+  color: var(--main-light-color);
+}
 
-  margin: 0;
-  padding: 0;
+.courses-container {
+  display: flex;
+  flex-direction: column;
 
-  margin-top: 20px;
+  width: 500px;
   margin-left: auto;
   margin-right: auto;
-}
+  margin-top: 50px;
 
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  position: relative;
-  list-style-type: none;
-  padding-left: 30px;
-  margin-bottom: 8px;
-}
-
-.item:not(:last-child) {
-  margin-bottom: 15px;
-}
-
-.item::before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 16px;
-  width: 6px;
-  height: 12px;
-  border-width: 0 2px 2px 0;
-  border-style: solid;
-
-  transform-origin: bottom left;
-  transform: rotate(45deg);
-}
-
-.item-minus {
-  border-bottom: 1px solid var(--rejected);
-}
-
-.item-minus::before {
-  border-color: var(--rejected);
-}
-
-.item-plus {
-  border-bottom: 1px solid var(--resolved);
-}
-
-.item-plus::before {
-  border-color: var(--resolved);
-}
-
-.total {
-  margin-top: 0;
-  margin-bottom: 0;
-
-  font-size: 18px;
-}
-
-.total + .total {
-  margin-top: 80px;
-}
-
-.total-deposit {
-  color: var(--resolved);
-}
-
-.total-withdraw {
-  color: var(--rejected);
+  gap: 15px;
 }
