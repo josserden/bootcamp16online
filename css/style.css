@@ -1,10 +1,10 @@
 :root {
-  --main-bg: linear-gradient(to right, #ffffff, #ece9e6);
-  --main-accent: #009fff;
-  --main-font-color: #020202;
-  --main-light-color: #ffffff;
+  --main-bg: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  --main-font-color: #403866;
+  --main-accent-color: #8f8fa1;
+  --main-light: #ffffff;
+  --main-mint: #00a8a8;
 }
-
 *,
 *:before,
 *:after {
@@ -22,23 +22,56 @@ body {
   letter-spacing: 0.03em;
   font-weight: 700;
 
-  padding: 40px 0;
+  margin: 0;
+  padding: 20px;
 }
 
-.container {
-  max-width: 1200px;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  padding-left: 15px;
-  padding-right: 15px;
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.buttons-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+li + li {
+  margin-top: 10px;
+}
+
+a {
+  /* text-decoration: none; */
+  color: inherit;
+
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--main-mint);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.input {
+  display: block;
+  width: 350px;
+  height: 40px;
+
+  padding: 0 20px;
+  margin-top: 15px;
+  background: var(--main-light);
+  border-radius: 8px;
+  border: 1px solid var(--main-accent-color);
+  outline: none;
+
+  color: var(--main-accent-color);
+  font-size: 18px;
+  font-weight: inherit;
+}
+
+.input:focus {
+  box-shadow: 0px 0px 1px 1px var(--main-accent-color);
 }
 
 .button {
@@ -48,27 +81,9 @@ body {
   border: 0;
   cursor: pointer;
 
-  color: var(--main-font-color);
-  font-weight: bold;
+  background-color: var(--main-mint);
+  color: var(--main-light);
 
   padding: 15px 20px;
-  border: 2px solid var(--main-accent);
-  border-radius: 4px;
-}
-
-.button.is-active {
-  background-color: var(--main-accent);
-  color: var(--main-light-color);
-}
-
-.courses-container {
-  display: flex;
-  flex-direction: column;
-
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-
-  gap: 15px;
+  border-radius: 8px;
 }
