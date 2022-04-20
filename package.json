@@ -1,25 +1,28 @@
 {
-  "name": "bootcamp16online",
-  "version": "1.0.0",
+  "name": "parcel-project-template",
+  "version": "1.1.0",
   "description": "",
-  "source": "src/index.html",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "main": "index.js",
+  "homepage": "https://josserden.github.io/bootcamp16online",
   "scripts": {
-    "start": "parcel --open",
-    "build": "parcel build"
+    "dev": "parcel src/*.html --open",
+    "build": "parcel build src/*.html --public-url /bootcamp16online/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/josserden/bootcamp16online.git"
+    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/josserden/bootcamp16online/issues"
+    "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
-  "homepage": "https://github.com/josserden/bootcamp16online#readme",
   "devDependencies": {
-    "parcel": "^2.4.1"
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "posthtml-include": "^1.6.2",
+    "sass": "^1.32.8"
   }
 }
