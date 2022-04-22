@@ -1,5 +1,6 @@
 export const renderMarkup = (contacts, container) => {
   container.innerHTML = '';
+
   const markup = contacts
     .map(
       ({ name, email, phone, id }) => `
