@@ -3,7 +3,7 @@ export const renderMarkup = (contacts, container) => {
   const markup = contacts
     .map(
       ({ name, email, phone, id }) => `
-      <div class="card col-xl-3 col-lg-4 col-md-6 mb-4 position-relative">
+      <div class="card ms-1 col-xl-3 col-lg-4 col-md-6 mb-1 position-relative">
         <div class="card-body">
           <h5 class="card-title d-flex align-items-center gap-1 mb-4">
             <span class="material-icons-round"> cast </span> ${name}

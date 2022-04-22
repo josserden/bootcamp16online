@@ -14,39 +14,20 @@ const { formSearch, modalForm, contactsList } = getRefs();
 const notyf = new Notyf();
 
 init();
-
 modalForm.addEventListener('submit', onSubmit);
 formSearch.addEventListener('input', lodash(onSearch, 500));
 contactsList.addEventListener('click', onDelete);
 
-function onDelete(e) {
-  const currentIndex = e.target.dataset.id;
-  const contacts = Storage.load(LS_KEY);
-  if (!currentIndex) return;
+function init() {
+  const contactsFromLS = Storage.load(LS_KEY);
 
-  if (contacts) {
-    const updatedContacts = contacts.filter(
-      contact => contact.id !== currentIndex,
-    );
-
-    Storage.save(LS_KEY, [...updatedContacts]);
-    renderMarkup(updatedContacts, contactsList);
-  }
-}
-function onSearch(e) {
-  const searchValue = e.target.value.toLowerCase();
-
-  const contacts = Storage.load(LS_KEY);
-  if (contacts) {
-    const parsedContacts = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(searchValue),
-    );
-    Storage.save(LS_KEY, [...parsedContacts]);
-    renderMarkup(parsedContacts, contactsList);
+  if (contactsFromLS) {
+    renderMarkup(contactsFromLS, contactsList);
   }
 }
 function onSubmit(e) {
   e.preventDefault();
+
   const formData = new FormData(modalForm);
 
   const name = formData.get('name').trim();
@@ -70,10 +51,30 @@ function onSubmit(e) {
 
   modalForm.reset();
 }
-function init() {
-  const contactsFromLS = Storage.load(LS_KEY);
+function onSearch(e) {
+  const searchValue = e.target.value.toLowerCase().trim();
 
-  if (contactsFromLS) {
-    renderMarkup(contactsFromLS, contactsList);
+  const contacts = Storage.load(LS_KEY);
+  if (contacts) {
+    const parsedContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(searchValue),
+    );
+
+    renderMarkup(parsedContacts, contactsList);
+  }
+}
+function onDelete(e) {
+  const currentIndex = e.target.dataset.id;
+  const contacts = Storage.load(LS_KEY);
+  if (!currentIndex) return;
+
+  if (contacts) {
+    const updatedContacts = contacts.filter(
+      contact => contact.id !== currentIndex,
+    );
+
+    Storage.save(LS_KEY, [...updatedContacts]);
+
+    renderMarkup(updatedContacts, contactsList);
   }
 }
