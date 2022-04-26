@@ -13,4 +13,10 @@ const markup = ({ username, birthDay }, index) => `
           <td>${isBirthday(birthDay) ? 'Yes' : 'No'}</td>
         </tr>`;
 
-renderMarkup(markup, users, table);
+const options = {
+  markup,
+  array: users,
+  container: table,
+};
+
+renderMarkup(options);

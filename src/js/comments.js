@@ -5,7 +5,7 @@ import { renderMarkup } from './helpers/renderMarkup';
 const { list } = getRefs();
 
 const markup = ({ author, content, createdAt }) => `
-        <div class="card">
+        <div class="card mt-3">
           <div class="card-body">
             <span class="text-muted">Author</span>
             <h5 class="card-title">${author}</h5>
@@ -16,4 +16,10 @@ const markup = ({ author, content, createdAt }) => `
           )}</div>
         </div>`;
 
-renderMarkup(markup, comments, list);
+const options = {
+  markup,
+  array: comments,
+  container: list,
+};
+
+renderMarkup(options);
