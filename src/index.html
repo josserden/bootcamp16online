@@ -11,33 +11,20 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body class="bg-light">
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
+    <section class="shadow mb-5 bg-body rounded p-4 bg-primary">
+      <div class="container">
+        <include src="./partials/form.html"></include>
+      </div>
+    </section>
+
     <section class="py-5">
       <div class="container">
-        <div class="list-group mx-auto" style="width: 38rem">
-          <a
-            href="./pages/users.html"
-            class="list-group-item list-group-item-action"
-            aria-current="true"
-          >
-            <div>
-              <h5 class="mb-1">Users</h5>
-            </div>
-            <p class="mb-1">Calculate users age in table</p>
-          </a>
-          <a
-            href="./pages/comments.html"
-            class="list-group-item list-group-item-action"
-          >
-            <div>
-              <h5 class="mb-1">Comments</h5>
-            </div>
-            <p class="mb-1">Convert posted date</p>
-          </a>
-        </div>
+        <include src="./partials/card.html"></include>
       </div>
     </section>
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
+    <script src="./index.js"></script>
   </body>
 </html>

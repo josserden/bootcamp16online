@@ -1,5 +1,9 @@
-// comments
-// import './js/comments';
+import './sass/main.scss';
 
-// users
-// import './js/users';
+fetch('https://httpstat.us/503')
+  .then(function (response) {
+    console.log('200 - ok');
+  })
+  .catch(function (error) {
+    console.log('Error : ' + error);
+  });
