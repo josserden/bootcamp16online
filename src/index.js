@@ -15,6 +15,8 @@ const loadMoreBtn = new LoadMoreBtn({
   isHide: true,
 });
 
+backToTopBtn.classList.add('d-none');
+
 window.addEventListener('scroll', throttle(showBackToTopBtn, 500));
 
 backToTopBtn.addEventListener('click', () => {
