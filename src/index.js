@@ -1,12 +1,11 @@
 import 'material-icons/iconfont/material-icons.css';
 import './sass/main.scss';
-
 import * as ContactService from './js/service/contacts-service';
 
 // GET => /contacts
-ContactService.fetchContacts()
-  .then(res => console.log(res.data))
-  .catch(error => console.error(error));
+// ContactService.fetchContacts()
+//   .then(res => console.log(res.data))
+//   .catch(error => console.error(error));
 
 // GET -> /contacts/:id
 // ContactService.getContact(16)
