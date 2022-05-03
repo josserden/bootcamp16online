@@ -2,37 +2,57 @@ import 'material-icons/iconfont/material-icons.css';
 import './sass/main.scss';
 import * as ContactService from './js/service/contacts-service';
 
-// GET => /contacts
-// ContactService.fetchContacts()
-//   .then(res => console.log(res.data))
-//   .catch(error => console.error(error));
+import { getRefs } from './js/getRefs';
+import { renderMarkup } from './js/renderMarkup';
+const { form, searchForm, contactsContainer } = getRefs();
 
-// GET -> /contacts/:id
-// ContactService.getContact(16)
-//   .then(res => console.log(res.data))
-//   .catch(error => console.error(error));
+refetch();
 
-// POST -> /contacts
-// const contact = {
-//   name: 'Jimmy',
-//   email: 'jimmy@mail.com',
-//   number: '987-654-4444',
-// };
+contactsContainer.addEventListener('click', deleteContact);
+form.addEventListener('submit', createContact);
 
-// ContactService.createContact(contact)
-//   .then(res => console.log(res))
-//   .catch(error => console.error(error));
+async function refetch() {
+  try {
+    const contacts = await ContactService.fetchContacts();
 
-// PUT -> /contacts/:id
-// const contact = {
-//   name: 'Maria',
-//   email: 'maria@mail.com',
-//   number: '987-654-9999',
-// };
+    if (contacts.length === 0) return;
 
-// ContactService.updateContact(32, contact)
-//   .then(res => console.log(res.data))
-//   .catch(error => console.error(error));
+    renderMarkup(contacts);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
 
-// DELETE -> /contacts/:id
-// ContactService.deleteContact(26);
+async function createContact(event) {
+  event.preventDefault();
+
+  const formData = new FormData(form);
+  const contact = {};
+
+  formData.forEach((value, key) => {
+    contact[key] = value;
+  });
+
+  try {
+    await ContactService.createContact(contact);
+    refetch();
+    form.reset();
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+async function deleteContact(event) {
+  const index = event.target.dataset.id;
+  if (!index) return;
+
+  try {
+    await ContactService.deleteContact(index);
+
+    event.target.parentNode.parentNode.remove();
+
+    refetch();
+  } catch (error) {
+    console.error(error.message);
+  }
+}
