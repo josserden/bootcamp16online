@@ -1,33 +1,23 @@
-// todo bind(), call()
+// todo bind()
 
-// function counter() {
-//   return function () {
-//     this.count += 1;
+/*
+ * Створіть метод counter який буде з this брати "i" і збільшувати його на одиницю. Після повертати "i".
+ * Використовуйте замикання та bind, щоб встановити змінній "i" різні значення
+ * Виведіть результат у консоль
+ */
 
-//     return this.count;
-//   };
-// }
+function counter() {
+  return function () {
+    this.i += 1;
 
-// const first = counter().bind({ count: 10 });
-// const second = counter().bind({ count: 100 });
+    return this.i;
+  };
+}
 
-// console.log(first());
-// console.log(second());
+const counter1 = counter().bind({ i: 0 });
+const counter2 = counter().bind({ i: 10 });
 
-// const guests = ['Mango', 'Poly', 'Ajax'];
-
-// const place1 = {
-//   house: '1',
-// };
-
-// const place2 = {
-//   house: '2',
-// };
-
-// function hostGuest(...currentGuests) {
-//   return `House ${this.house} with ${currentGuests.join(', ')}`;
-// }
-
-// console.log(hostGuest.call(place1, ...guests));
-// console.log(hostGuest.call(place2, 'Chelsey', 'Kostya'));
-// console.log(hostGuest.call(place2, ...guests, 'Chelsey', 'Kostya'));
+console.log(counter1());
+console.log(counter1());
+console.log(counter2());
+console.log(counter2());
